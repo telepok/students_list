@@ -22,7 +22,7 @@ if (array_key_exists('nextpage', $_GET)) {
             $currentPage++;
             break;
         case 'prev':
-            $offset = ($_GET['currentpage'] -1) * $limit;
+            $offset = ($_GET['currentpage'] -2) * $limit;
             if ($currentPage > 1) $currentPage--;
             break;
     }
