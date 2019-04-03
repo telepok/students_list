@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students List</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+{#    <link href="css/style.css" rel="stylesheet">#}
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Список студентов</h1>
+
+{#    <form action="">#}
+{#        <div class="form-group">#}
+{#            <label for="exampleInputEmail1">Email address</label>#}
+{#            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"#}
+{#                   placeholder="Enter email">#}
+{#            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>#}
+{#        </div>#}
+{#        <div class="form-check">#}
+{#            <label class="form-check-label">#}
+{#                <input type="checkbox" class="form-check-input">#}
+{#                Check me out#}
+{#            </label>#}
+{#        </div>#}
+{#        <button type="submit" class="btn btn-primary">Submit</button>#}
+{#    </form>#}
+
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-default">
+        <tr>
+            <th><a href="?order=first_name">Имя</a></th>
+            <th><a href="?order=last_name">Фамилия</a></th>
+            <th><a href="?order=groupNumber">Номер группы</a></th>
+            <th><a href="?order=rating">Баллы</a></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user['first_name'] }}</td>
+                <td>{{ user['last_name'] }}</td>
+                <td>{{ user['groupNumber'] }}</td>
+                <td>{{ user['rating'] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="?order={{ order }}&nextpage=prev&currentpage={{ currentpage }}">Назад</a></li>
+            <li class="page-item"><a class="page-link" href="?order={{ order }}&nextpage=prev&currentpage={{ currentpage }}">{{ currentpage }}</a></li>
+            <li class="page-item"><a class="page-link" href="?order={{ order }}&nextpage=next&currentpage={{ currentpage }}">Вперед</a></li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>

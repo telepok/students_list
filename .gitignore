@@ -1,2 +1,5 @@
 #.idea files
 .idea/
+vendor
+composer.*
+compilation_cache/
